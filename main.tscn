@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	
 	if game_over:
 		velocity = Vector2(0, 0)
+		if Input.is_action_just_pressed(\"ui_accept\"):
+			get_tree().reload_current_scene()
 
 
 func _on_obstacles_end_game() -> void:
@@ -74,6 +76,6 @@ z_index = 1
 texture = SubResource("GradientTexture1D_c2uvd")
 
 [node name="Obstacles" parent="." instance=ExtResource("1_vh1nm")]
-position = Vector2(298, 581)
+position = Vector2(612, 649)
 
 [connection signal="end_game" from="Obstacles" to="Jay" method="_on_obstacles_end_game"]
